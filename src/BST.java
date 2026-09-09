@@ -95,12 +95,43 @@ public class BST {
         populateSorted(a,0,a.length);
     }
 
+    public void preorder(Node node){
+        if (node == null) return;
+        System.out.println(node.val+" ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+    public void preorder(){
+        preorder(root);
+    }
+
+
+    public void inorder(Node node){
+        if (node == null) return;
+        inorder(node.left);
+        System.out.println(node.val+" ");
+        inorder(node.right);
+    }
+    public void inorder(){
+        inorder(root);
+    }
+
+
+    public void postorder(Node node){
+        if (node == null) return;
+        postorder(node.left);
+        postorder(node.right);
+        System.out.println(node.val+" ");
+    }
+    public void postorder(){
+        postorder(root);
+    }
+
     public static void main() {
         BST tree=new BST();
         int []a={53,5,634,6,57,69,5,56,66,86,86,68,68,6,4,6,67,8};
-        Arrays.sort(a);
         tree.populateSorted(a);
-        tree.displays();
+        tree.postorder();
     }
 
 }
