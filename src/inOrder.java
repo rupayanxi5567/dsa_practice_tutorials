@@ -15,8 +15,8 @@ class Node {
 
 class Solution {
 
-/* you only have to complete the function given below.  
-Node is defined as  
+/* you only have to complete the function given below.
+Node is defined as
 
 class Node {
     int data;

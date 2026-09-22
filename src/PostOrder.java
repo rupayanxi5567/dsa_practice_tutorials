@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-class Node {
+class Nodes {
     Node left;
     Node right;
     int data;
