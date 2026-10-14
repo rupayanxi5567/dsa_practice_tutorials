@@ -1,4 +1,3 @@
-package graphs_qns;
 import java.util.ArrayList;
 
 class Solution {

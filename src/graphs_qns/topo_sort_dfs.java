@@ -15,6 +15,7 @@ class Solution {
         }
         int[]vis=new int[v];
         Deque<Integer> stk = new ArrayDeque<>();
+
         for(int i=0;i<v;i++){
             if(vis[i]==0){
                 helper(res,adj,vis,stk,i);
