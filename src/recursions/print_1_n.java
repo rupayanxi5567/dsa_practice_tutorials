@@ -12,6 +12,6 @@ public class print_1_n {
     }
 
     public static void main(String[] args) {
-        helper(5);
+        helper(50);
     }
 }
