@@ -1,3 +1,5 @@
+package tree_qns;
+
 import java.util.Scanner;
 
 public class BinaryTrees {

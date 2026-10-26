@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+package tree_qns;
 
 public class BST {
     public class Node{
