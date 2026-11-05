@@ -8,6 +8,21 @@ public class House_robber_1 {
         System.out.println(helper(a,n-1));;
         System.out.println(top_down(a,n-1,dp));;
         System.out.println(bottom_up(a,n-1,dp));;
+        System.out.println(bottom_up_space_optimized(a,n-1,dp));;
+    }
+
+    public static int bottom_up_space_optimized(int[] a,int n, int[]dp){
+        int prev2=0;
+        int prev1=a[0];
+        for(int i=1;i<=n;i++){
+            int take = a[i] + prev2;
+            int skip = prev1;
+
+            int curr = Math.max(take,skip);
+            prev2=prev1;
+            prev1=curr;
+        }
+        return prev1;
     }
 
     public static int bottom_up(int[] a,int n, int[]dp){
@@ -36,6 +51,8 @@ public class House_robber_1 {
         if(n<0){
             return 0;
         }
-        return Math.max(a[n]+helper(a,n-2),helper(a,n-1));
+        int pick = a[n]+helper(a,n-2);
+        int noPick = helper(a,n-1);
+        return Math.max(noPick,pick);
     }
 }
