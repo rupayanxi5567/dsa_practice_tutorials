@@ -4,21 +4,27 @@ import java.util.Arrays;
 
 public class SubsetSumEqualsToTarget {
     static void main(String[] args) {
-        int []a={1,2,3,4};
-        int k = 4;
+        int []a={2,3,3,3,4,5};
         int n = a.length;
         int sum=0;
         int i=0;
 
-        System.out.println(helperSubsetSumEqualsToTarget(a,k,n,sum,i));
-
-        int[][] dp = new int[n][k + 1];
-        for (int[] row : dp) {
-            Arrays.fill(row, -1);
+        int tepSum=0;
+        for(int x:a){
+            tepSum+=x;
         }
-        System.out.println(topDownSubsetSum(a, k, n, sum, i, dp));
+        int target = tepSum / 2;
+        if(tepSum%2==0){
+            System.out.println(helperSubsetSumEqualsToTarget(a,target,n,sum,i));
 
-        System.out.println(bottomUpSubsetSum(a, k, n));
+            int[][] dp = new int[n][target + 1];
+            for (int[] row : dp) {
+                Arrays.fill(row, -1);
+            }
+            System.out.println(topDownSubsetSum(a, target, n, sum, i, dp));
+
+            System.out.println(bottomUpSubsetSum(a, target, n));
+        }
     }
 
     private static boolean bottomUpSubsetSum(int[] a, int k, int n) {
@@ -63,7 +69,7 @@ public class SubsetSumEqualsToTarget {
 
         boolean pick = false;
         if(sum+a[i] <= k){
-            pick=topDownSubsetSum(a,k,n,sum,i+1,dp);
+            pick=topDownSubsetSum(a,k,n,sum+a[i],i+1,dp);
         }
 
         boolean notpick = topDownSubsetSum(a,k,n,sum,i+1,dp);
